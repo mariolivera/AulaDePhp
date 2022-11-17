@@ -1,14 +1,13 @@
 <?php
-function abriConexao() : PDO
+
+function abrirConexao(): PDO
 {
     $servidor = 'localhost';
-    $usuario = 'host';
+    $usuario = 'root';
     $senha = '1234';
-    $banco = 'db_alunos';
-    
-    $conexao = new PDO("mysql:host={$servidor}; dbname={$banco}", $usuario, $senha);
-    
+    $banco = 'db_sistema';
+
+    $conexao = new PDO("mysql:host={$servidor};dbname={$banco}", $usuario, $senha);
+
     return $conexao;
 }
-
-?>
