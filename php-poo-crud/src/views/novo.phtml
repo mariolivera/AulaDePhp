@@ -1,13 +1,15 @@
-<h1>Cadastrar Novo Aluno</h1>
+<h1>Novo</h1>
 <hr>
-<card class="">
-    <form action="#" method='POST'>
-        <label></label>
-        <input type="text" name="nome" placeholder="Nome">
-        <label></label>
-        <input type="text" name="matricula" placeholder="Matricula">
-        <label></label>
-        <input type="text" name="cidade" placeholder="Cidade">
-        <input type="submit" value="criar">
-    </form>
-</card>
+
+<form action="#" method="post">
+    <label>Nome</label>
+    <input required value="<?php echo $_POST['nome'] ?? '' ?>" type="text" name="nome">
+    
+    <label>Matricula</label>
+    <input required value="<?php echo $_POST['matricula'] ?? '' ?>" type="text" name="matricula">
+    
+    <label>cidade</label>
+    <input required value="<?php echo $_POST['cidade'] ?? '' ?>" type="text" name="cidade">
+    
+    <button type="submit">Criar</button>
+</form>
