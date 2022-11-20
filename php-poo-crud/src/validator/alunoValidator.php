@@ -16,7 +16,7 @@ function validateForm(string $nome, string $cidade, string $matricula): bool
         return false;
     }
 
-    if (strlen($matricula) < 6) {
+    if (strlen($matricula) < 1) {
         $mensagem = 'Matricula invalida';
         include '../src/views/components/erro.phtml';
         return false;

@@ -2,13 +2,13 @@
 <hr>
 
 
-<form action="#" method="post">
-    <input type="hidden" name="id" value="<?php  echo $dados["id"]; ?>">
+<form action="#" method="POST">
+    <input type="hidden" name="idalunos" value="<?php echo $_POST["idalunos"] ?? $dados["idalunos"] ?>">
     <label>Nome</label>
-    <input type="text" name="nome" value="<?php echo $_POST["nome"] ?? $dados["nome"]; ?>">
+    <input type="text" name="nome" value="<?php echo $_POST["nome"] ?? $dados["nome"] ?>">
     <label>Matricula</label>
-    <input type="text" name="matricula" value="<?php echo $_POST["matricula"] ?? $dados["matricula"]; ?>">
+    <input type="text" name="matricula" value="<?php echo $_POST["matricula"] ?? $dados["matricula"] ?>">
     <label>cidade</label>
-    <input type="text" name="cidade" value="<?php echo $_POST["cidade"] ?? $dados["cidade"]; ?>">
-    <button type="submit">Editar</button>
+    <input type="text" name="cidade" value="<?php echo $_POST["cidade"] ?? $dados["cidade"] ?>">
+    <button type="submit" value="editar">Editar</button>
 </form>

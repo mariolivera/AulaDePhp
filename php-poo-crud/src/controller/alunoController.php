@@ -3,11 +3,11 @@
 //definindo que nesse arquivo será trabalhado os tipos de dados
 declare(strict_types=1);
 
-function renderizar(string $nomeDoArquivo, mixed $dados = null) {
-    include '../src/views/head.phtml';
+function renderizar(string $nomeDoArquivo, mixed $dados = null): void {
+    include '../src/views/header.phtml';
     include "../src/views/{$nomeDoArquivo}.phtml";
     $dados;
-    include '../src/views/foot.phtml';
+    include '../src/views/footer.phtml';
 }
 
 function redirecionar(string $onde){
@@ -20,13 +20,6 @@ function inicio (): void //estamos declarando que essa funcao "nao tem retorno"
     renderizar("inicio");
 }
 
-function excluir() {
-    $id = $_GET['id']; //recuperando o id que tava na URL
-
-    excluirAluno($id); //pedindo ao repository pra excluir o aluno (nao sabemos como, mas ele vai)
-
-    redirecionar("/listar"); //redirecionando pra pagina de listar
-}
 
 function listar (): void 
 {
@@ -40,12 +33,12 @@ function novo (): void
     renderizar("novo");
 
     //se o usuario preencheu o formulario, vai entrar nesse if
-    if (false === empty($_POST)) {
+    if (!empty($_POST)) {
         $nome = trim($_POST['nome']);
         $cidade = trim($_POST['cidade']);
         $matricula = trim($_POST['matricula']);
 
-        if (true === validateForm($nome, $cidade, $matricula)) {
+        if (validateForm($nome, $cidade, $matricula)) {
             novoAluno($nome, $cidade, $matricula);
             redirecionar('/listar');
         } 
@@ -54,18 +47,26 @@ function novo (): void
 
 function editar (): void
 {
-    $id = $_GET["id"];
-    $aluno = buscarUmAluno($id);
+    $idalunos = $_GET["idalunos"];
+    $aluno = buscarUmAluno($idalunos);
     renderizar("editar", $aluno);
-    if (false === empty($_POST)) {
+    if (!empty($_POST)) {
         $nome = trim($_POST['nome']);
         $cidade = trim($_POST['cidade']);
         $matricula = trim($_POST['matricula']);
-
-        if (true === validateForm($nome, $cidade, $matricula)) {
-            atualizarAluno($nome, $cidade, $matricula, $id);
+        
+        if (validateForm($nome, $cidade, $matricula)) {
+            atualizarAluno($nome, $cidade, $matricula, $idalunos);
             redirecionar('/listar');
         } 
     }
     
+}
+
+function excluir() {
+    $idalunos = $_GET['idalunos']; //recuperando o id que tava na URL
+
+    excluirAluno($idalunos); //pedindo ao repository pra excluir o aluno (nao sabemos como, mas ele vai)
+
+    redirecionar('/listar'); //redirecionando pra pagina de listar
 }
