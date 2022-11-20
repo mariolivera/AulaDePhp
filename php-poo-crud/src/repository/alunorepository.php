@@ -1,7 +1,7 @@
 <?php
 //declare(string_types=1);  esse codigo serva para da mostrar os erros caso passe os tipos indevidos. ex: int junto com float.
 
-function buscaralunos(): iterable // iterable seu uso é pecorrer (pecorrivel)
+function buscarAlunos(): iterable // iterable seu uso é pecorrer (pecorrivel)
 {
     $sql = 'SELECT * FROM alunos';
     $alunos = abrirConexao()->query($sql);
@@ -16,8 +16,8 @@ function buscarUmAluno($idalunos): iterable // iterable seu uso é pecorrer (pec
 
 function novoAluno(string $nome, string $matricula, string $cidade): void
 {
-        $select = "INSERT INTO alunos (nome, matricula, cidade) VALUES (?,?,?)";
-        $query = abrirConexao()->prepare($select);
+        $sql = "INSERT INTO alunos (nome, matricula, cidade) VALUES (?,?,?)";
+        $query = abrirConexao()->prepare($sql);
         $query->execute([$nome, $matricula, $cidade]);
 }
 
@@ -26,8 +26,8 @@ function atualizarAluno(string $nome, string $matricula, string $cidade, $idalun
 
         $sql = "UPDATE alunos SET nome=?, matricula=?, cidade=? WHERE idalunos=?";
         $query = abrirConexao()->prepare($sql);
-        $query->execute([$idalunos, $nome, $matricula, $cidade]);
-        header('location: /listar');
+        $query->execute([$nome, $matricula, $cidade, $idalunos]);
+        // header('location: /listar');
 }
 
 function excluirAluno(string $idalunos): void

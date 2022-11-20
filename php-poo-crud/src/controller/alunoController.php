@@ -33,13 +33,13 @@ function novo (): void
     renderizar("novo");
 
     //se o usuario preencheu o formulario, vai entrar nesse if
-    if (!empty($_POST)) {
+    if (false === empty($_POST)) {
         $nome = trim($_POST['nome']);
         $cidade = trim($_POST['cidade']);
         $matricula = trim($_POST['matricula']);
 
-        if (validateForm($nome, $cidade, $matricula)) {
-            novoAluno($nome, $cidade, $matricula);
+        if (true === validateForm($nome, $matricula, $cidade)) {
+            novoAluno($nome, $matricula, $cidade);
             redirecionar('/listar');
         } 
     }
@@ -50,17 +50,16 @@ function editar (): void
     $idalunos = $_GET["idalunos"];
     $aluno = buscarUmAluno($idalunos);
     renderizar("editar", $aluno);
-    if (!empty($_POST)) {
+    if (false === empty($_POST)) {
         $nome = trim($_POST['nome']);
-        $cidade = trim($_POST['cidade']);
         $matricula = trim($_POST['matricula']);
+        $cidade = trim($_POST['cidade']);
         
-        if (validateForm($nome, $cidade, $matricula)) {
-            atualizarAluno($nome, $cidade, $matricula, $idalunos);
+        if (true === validateForm($nome, $matricula, $cidade)) {
+            atualizarAluno($nome, $matricula, $cidade, $idalunos);
             redirecionar('/listar');
         } 
     }
-    
 }
 
 function excluir() {
