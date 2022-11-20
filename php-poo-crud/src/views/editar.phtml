@@ -1,14 +1,14 @@
-<h1>Pagina de Editar</h1>
+<h1 style="text-align: center;">Pagina de Editar</h1>
 <hr>
 
 
-<form action="#" method="POST">
-    <input type="hidden" name="idalunos" value="<?php echo $_POST["idalunos"] ?? $dados["idalunos"] ?>">
-    <label>Nome</label>
-    <input type="text" name="nome" value="<?php echo $_POST["nome"] ?? $dados["nome"] ?>">
-    <label>Matricula</label>
-    <input type="text" name="matricula" value="<?php echo $_POST["matricula"] ?? $dados["matricula"] ?>">
-    <label>cidade</label>
-    <input type="text" name="cidade" value="<?php echo $_POST["cidade"] ?? $dados["cidade"] ?>">
-    <button type="submit" value="editar">Editar</button>
+<form action="#" method="POST" style="text-align: center;">
+    <input type="hidden" name="idalunos"  value="<?php echo $_POST["idalunos"] ?? $dados["idalunos"] ?> ">
+    <label></label>
+    <input type="text" name="nome" class="btn btn-outline-dark" placeholder="Nome" value="<?php echo $_POST["nome"] ?? $dados["nome"] ?>">
+    <label></label>
+    <input type="text" name="matricula"  class="btn btn-outline-dark" placeholder="Matricula" value="<?php echo $_POST["matricula"] ?? $dados["matricula"] ?>">
+    <label></label>
+    <input type="text" name="cidade" class="btn btn-outline-dark" placeholder="Cidade" value="<?php echo $_POST["cidade"] ?? $dados["cidade"] ?>">
+    <button type="submit" class="btn btn-outline-success" value="editar">Salvar Edição</button>
 </form>

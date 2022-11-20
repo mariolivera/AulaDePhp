@@ -1,15 +1,15 @@
-<h1>Novo</h1>
+<h1 style="text-align: center;">Novo</h1>
 <hr>
 
-<form action="#" method="post">
-    <label>Nome</label>
-    <input required value="<?php echo $_POST['$nome'] ?? '' ?>" type="text" name="nome">
+<form action="#" method="post" style="text-align: center;">
+    <label></label>
+    <input required value="<?php echo $_POST['$nome'] ?? '' ?>" type="text" name="nome" class="btn btn-outline-dark" placeholder="Nome" >
     
-    <label>Matricula</label>
-    <input required value="<?php echo $_POST['$matricula'] ?? '' ?>" type="text" name="matricula">
+    <label></label>
+    <input required value="<?php echo $_POST['$matricula'] ?? '' ?>" type="text" name="matricula" class="btn btn-outline-dark" placeholder="Matricula">
     
-    <label>cidade</label>
-    <input required value="<?php echo $_POST['$cidade'] ?? '' ?>" type="text" name="cidade">
+    <label></label>
+    <input required value="<?php echo $_POST['$cidade'] ?? '' ?>" type="text" name="cidade" class="btn btn-outline-dark" placeholder="Cidade">
     
-    <button type="submit" value="criar">Enviar</button>
+    <button type="submit" value="criar" class="btn btn-outline-primary">Enviar</button>
 </form>
